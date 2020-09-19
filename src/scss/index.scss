@@ -1,0 +1,26 @@
+@import './variables.scss';
+
+body {
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: $body-font-family;
+}
+
+label {
+  color: #751919;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+.v-btn{
+  border-radius: $btn-border-radius;
+  text-transform: $btn-text-transform;
+  letter-spacing: $btn-letter-spacing;
+ }
+
+
+

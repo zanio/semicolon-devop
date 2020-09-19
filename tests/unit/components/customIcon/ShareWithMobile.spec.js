@@ -1,0 +1,30 @@
+import {shallowMount} from "@vue/test-utils";
+import ShareWithMobile from "@/components/customIcon/ShareWithMobile";
+
+describe("ShareWithMobile Component", () => {
+    let wrapper;
+    beforeAll(() => {
+        wrapper = shallowMount(ShareWithMobile);
+    });
+    test("Check if component is a vue instance", () => {
+        expect(wrapper.isVueInstance).toBeTruthy();
+    });
+
+    test("It should have a created hook of undefined because component is yet to be defined", () => {
+        expect(typeof ShareWithMobile.created).toBe("undefined");
+    });
+
+    test("It should have a name of ShareWithMobile", () => {
+        expect( wrapper.name()).toBe("ShareWithMobile");
+    });
+
+    test("It should not have a name of ShareWithMobile", () => {
+        expect( wrapper.name()).not.toBe("some_gibberish");
+    });
+
+    test("It should be an svg tag ", () => {
+        const svgElementExist = wrapper.contains('svg')
+        expect(svgElementExist).toBe(true)
+    });
+
+});
