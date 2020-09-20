@@ -42,7 +42,6 @@ yarn-error.log*
 /nbdist/
 /.nb-gradle/
 build/
-package-lock.json
 
 ### VS Code ###
 .vscode/
