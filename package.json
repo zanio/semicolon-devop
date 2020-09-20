@@ -10,9 +10,7 @@
     "lint": "vue-cli-service lint",
     "clean": "rm -rf ./dist",
     "start": "node server/server.js",
-    "build": "npm run clean && npm run pre-build",
-    "test-e2e:open": "cypress open",
-    "test-e2e": "cypress run"
+    "build": "npm run clean && npm run pre-build"
   },
   "dependencies": {
     "autoprefixer": "^9.8.5",
@@ -54,7 +52,6 @@
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.1.0",
     "cross-env": "^6.0.3",
-    "cypress": "^5.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "jest": "^26.1.0",
