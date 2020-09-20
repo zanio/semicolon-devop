@@ -13,7 +13,7 @@
                     alt="Semicolon Logo"
                     class="shrink"
                     contain
-                    src="src/static/semicolon.svg"
+                    src="src/assets/ds-suite-logo.svg"
                     transition="scale-transition"
                     max-width="200"
                   >

@@ -3,7 +3,7 @@
     alt="Create Password Image"
     class="shrink"
     contain
-    :src="require(`../../static/doorway-illo.png`)"
+    :src="require(`../../assets/infrastruture.svg`)"
     transition="scale-transition"
     max-width="650"
   >

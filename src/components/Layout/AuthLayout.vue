@@ -12,7 +12,7 @@
                     alt="Semicolon Logo"
                     class="shrink"
                     contain
-                    :src="require(`../../static/semicolon.svg`)"
+                    :src="require(`../../assets/ds-suite-logo.svg`)"
                     transition="scale-transition"
                     max-width="200"
                   >
