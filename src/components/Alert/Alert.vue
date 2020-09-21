@@ -1,38 +1,58 @@
 <template>
   <v-alert
-    v-if="text"
-    type="primary"
-    tile
-    dense
-    class="white--text darken-2 remove-margin font-weight-bold text-center"
-    @input="onClose"
-    :value="true"
-    v-text="text"
+      v-bind="$attrs"
+      class="v-alert--material"
+      dark
+      v-on="$listeners"
   >
+    <template
+        v-if="$attrs.icon"
+        v-slot:prepend
+    >
+      <v-icon
+          class="v-alert__icon elevation-6 white"
+          light
+          :color="$attrs.color"
+      >
+        {{ $attrs.icon }}
+      </v-icon>
+    </template>
+
+    <slot />
+
+    <template
+        v-if="$attrs.dismissible"
+        v-slot:close="{ toggle }"
+    >
+      <v-btn
+          :aria-label="$vuetify.lang.t('$vuetify.close')"
+          color
+          icon
+          small
+          @click="toggle"
+      >
+        <v-icon>
+          $vuetify.icons.cancel
+        </v-icon>
+      </v-btn>
+    </template>
   </v-alert>
 </template>
 
 <script>
 export default {
-  props: ["text"],
-  methods: {
-    onClose() {
-      this.$emit("dismissed");
-    }
-  }
-};
+  name: 'MaterialAlert',
+}
 </script>
 
-<style lang="scss" scoped>
-@import "../../scss/variables";
+<style lang="sass" scoped>
 
-.v-alert {
-  margin: 0;
-  position: fixed;
-  box-shadow: 10px 10px 18px -6px rgba(0, 0, 0, 0.37) !important;
-  left: 0;
-  top: 0;
-  width: 100%;
-  z-index: 999;
-}
+  .v-alert__icon
+    top: -36px
+
+  .v-alert__dismissible
+    align-self: flex-start
+    margin: 0 !important
+    padding: 0 !important
 </style>
+

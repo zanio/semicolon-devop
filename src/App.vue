@@ -2,7 +2,7 @@
   <v-app>
     <v-layout row v-if="errors">
       <v-flex xs12>
-        <alert :text="errors" />
+        <alert v-text="errorMessage" color="error"/>
       </v-flex>
     </v-layout>
     <router-view />

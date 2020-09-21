@@ -4,8 +4,19 @@ module.exports = {
     config
         .plugin('html')
         .tap(args => {
-          args[0].title = 'Reeach - App'
+          args[0].title = 'DevSuite - App'
           return args
         })
-  }
+  },
+    pluginOptions: {
+        i18n: {
+            locale: 'en',
+            fallbackLocale: 'en',
+            localeDir: 'locales',
+            enableInSFC: false,
+        },
+    },
+    devServer: {
+        disableHostCheck: true,
+    },
 };
