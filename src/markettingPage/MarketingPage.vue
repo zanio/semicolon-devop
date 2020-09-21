@@ -1,16 +1,15 @@
 <template>
-
-<div>
   <!--==========================
   Header
   ============================-->
+  <div>
   <header id="header" class="fixed-top">
     <div class="container">
 
       <div class="logo float-left">
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <h1 class="text-light"><a href="#header"><span>NewBiz</span></a></h1> -->
-        <a href="#intro" class="scrollto"><img src="img/logo.png" alt="" class="img-fluid"></a>
+        <a href="#intro" class="scrollto"><img :src="require('@/assets/ds-suite-logo.svg')" alt="" class="img-fluid"></a>
       </div>
 
       <nav class="main-nav float-right d-none d-lg-block">
@@ -18,25 +17,6 @@
           <li class="active"><a href="#intro">Home</a></li>
           <li><a href="#about">About Us</a></li>
           <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li class="drop-down"><a href="">Drop Down</a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="drop-down"><a href="#">Drop Down 2</a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-              <li><a href="#">Drop Down 5</a></li>
-            </ul>
-          </li>
           <li><a href="#contact">Contact Us</a></li>
         </ul>
       </nav><!-- .main-nav -->
@@ -51,11 +31,11 @@
     <div class="container">
 
       <div class="intro-img">
-        <img src="img/intro-img.svg" alt="" class="img-fluid">
+        <img :src="require('@/assets/img/undraw_nakamoto_2iv6.svg')" alt="" class="img-fluid">
       </div>
 
       <div class="intro-info">
-        <h2>We provide<br><span>solutions</span><br>for your business!</h2>
+        <h2>We provide CI/CD<br><span>solutions</span><br>for your business!</h2>
         <div>
           <a href="#about" class="btn-get-started scrollto">Get Started</a>
           <a href="#services" class="btn-services scrollto">Our Services</a>
@@ -106,13 +86,13 @@
           </div>
 
           <div class="col-lg-6 background order-lg-2 order-1 wow fadeInUp">
-            <img src="img/about-img.svg" class="img-fluid" alt="">
+            <img :src="require('@/assets/img/undraw_team_spirit_hrr4.svg')" class="img-fluid" alt="">
           </div>
         </div>
 
         <div class="row about-extra">
           <div class="col-lg-6 wow fadeInUp">
-            <img src="img/about-extra-1.svg" class="img-fluid" alt="">
+            <img :src="require('@/assets/img/undraw_interaction_design_odgc.svg')" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
             <h4>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h4>
@@ -127,7 +107,7 @@
 
         <div class="row about-extra">
           <div class="col-lg-6 wow fadeInUp order-1 order-lg-2">
-            <img src="img/about-extra-2.svg" class="img-fluid" alt="">
+            <img :src="require('@/assets/img/undraw_teacher_35j2.svg')" class="img-fluid" alt="">
           </div>
 
           <div class="col-lg-6 wow fadeInUp pt-4 pt-lg-0 order-2 order-lg-1">
@@ -286,250 +266,6 @@
     </section>
 
     <!--==========================
-      Portfolio Section
-    ============================-->
-    <section id="portfolio" class="clearfix">
-      <div class="container">
-
-        <header class="section-header">
-          <h3 class="section-title">Our Portfolio</h3>
-        </header>
-
-        <div class="row">
-          <div class="col-lg-12">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-web">Web</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="row portfolio-container">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="img/portfolio/app1.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4><a href="#">App 1</a></h4>
-                <p>App</p>
-                <div>
-                  <a href="img/portfolio/app1.jpg" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
-                  <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web" data-wow-delay="0.1s">
-            <div class="portfolio-wrap">
-              <img src="img/portfolio/web3.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4><a href="#">Web 3</a></h4>
-                <p>Web</p>
-                <div>
-                  <a href="img/portfolio/web3.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 3" title="Preview"><i class="ion ion-eye"></i></a>
-                  <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app" data-wow-delay="0.2s">
-            <div class="portfolio-wrap">
-              <img src="img/portfolio/app2.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4><a href="#">App 2</a></h4>
-                <p>App</p>
-                <div>
-                  <a href="img/portfolio/app2.jpg" class="link-preview" data-lightbox="portfolio" data-title="App 2" title="Preview"><i class="ion ion-eye"></i></a>
-                  <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="img/portfolio/card2.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4><a href="#">Card 2</a></h4>
-                <p>Card</p>
-                <div>
-                  <a href="img/portfolio/card2.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 2" title="Preview"><i class="ion ion-eye"></i></a>
-                  <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web" data-wow-delay="0.1s">
-            <div class="portfolio-wrap">
-              <img src="img/portfolio/web2.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4><a href="#">Web 2</a></h4>
-                <p>Web</p>
-                <div>
-                  <a href="img/portfolio/web2.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 2" title="Preview"><i class="ion ion-eye"></i></a>
-                  <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app" data-wow-delay="0.2s">
-            <div class="portfolio-wrap">
-              <img src="img/portfolio/app3.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4><a href="#">App 3</a></h4>
-                <p>App</p>
-                <div>
-                  <a href="img/portfolio/app3.jpg" class="link-preview" data-lightbox="portfolio" data-title="App 3" title="Preview"><i class="ion ion-eye"></i></a>
-                  <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="img/portfolio/card1.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4><a href="#">Card 1</a></h4>
-                <p>Card</p>
-                <div>
-                  <a href="img/portfolio/card1.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 1" title="Preview"><i class="ion ion-eye"></i></a>
-                  <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card" data-wow-delay="0.1s">
-            <div class="portfolio-wrap">
-              <img src="img/portfolio/card3.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4><a href="#">Card 3</a></h4>
-                <p>Card</p>
-                <div>
-                  <a href="img/portfolio/card3.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 3" title="Preview"><i class="ion ion-eye"></i></a>
-                  <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web" data-wow-delay="0.2s">
-            <div class="portfolio-wrap">
-              <img src="img/portfolio/web1.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4><a href="#">Web 1</a></h4>
-                <p>Web</p>
-                <div>
-                  <a href="img/portfolio/web1.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 1" title="Preview"><i class="ion ion-eye"></i></a>
-                  <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- #portfolio -->
-
-    <!--==========================
-      Team Section
-    ============================-->
-    <section id="team">
-      <div class="container">
-        <div class="section-header">
-          <h3>Team</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
-        </div>
-
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6 wow fadeInUp">
-            <div class="member">
-              <img src="img/team-1.jpg" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>Walter White</h4>
-                  <span>Chief Executive Officer</span>
-                  <div class="social">
-                    <a href=""><i class="fa fa-twitter"></i></a>
-                    <a href=""><i class="fa fa-facebook"></i></a>
-                    <a href=""><i class="fa fa-google-plus"></i></a>
-                    <a href=""><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="member">
-              <img src="img/team-2.jpg" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>Sarah Jhonson</h4>
-                  <span>Product Manager</span>
-                  <div class="social">
-                    <a href=""><i class="fa fa-twitter"></i></a>
-                    <a href=""><i class="fa fa-facebook"></i></a>
-                    <a href=""><i class="fa fa-google-plus"></i></a>
-                    <a href=""><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-            <div class="member">
-              <img src="img/team-3.jpg" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>William Anderson</h4>
-                  <span>CTO</span>
-                  <div class="social">
-                    <a href=""><i class="fa fa-twitter"></i></a>
-                    <a href=""><i class="fa fa-facebook"></i></a>
-                    <a href=""><i class="fa fa-google-plus"></i></a>
-                    <a href=""><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-            <div class="member">
-              <img src="img/team-4.jpg" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>Amanda Jepson</h4>
-                  <span>Accountant</span>
-                  <div class="social">
-                    <a href=""><i class="fa fa-twitter"></i></a>
-                    <a href=""><i class="fa fa-facebook"></i></a>
-                    <a href=""><i class="fa fa-google-plus"></i></a>
-                    <a href=""><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- #team -->
-
-
-    <!--==========================
       Contact Section
     ============================-->
     <section id="contact">
@@ -539,25 +275,19 @@
           <h3>Contact Us</h3>
         </div>
 
-        <div class="row wow fadeInUp">
-
-          <div class="col-lg-6">
-            <div class="map mb-4 mb-lg-0">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 312px;" allowfullscreen></iframe>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
+        <v-row justify="center" class="row wow fadeInUp">
+        <v-col offset-md="2" class="d-sm-none"/>
+          <v-col cols="12" md="8" sm="12" class="col-lg-6 col-md-8 col-sm-12">
             <div class="row">
-              <div class="col-md-5 info">
+              <div class="col-md-5 app-background-color">
                 <i class="ion-ios-location-outline"></i>
                 <p>A108 Adam Street, NY 535022</p>
               </div>
-              <div class="col-md-4 info">
+              <div class="col-md-4 app-background-color">
                 <i class="ion-ios-email-outline"></i>
                 <p>info@example.com</p>
               </div>
-              <div class="col-md-3 info">
+              <div class="col-md-3 app-background-color">
                 <i class="ion-ios-telephone-outline"></i>
                 <p>+1 5589 55488 55</p>
               </div>
@@ -588,9 +318,10 @@
                 <div class="text-center"><button type="submit" title="Send Message">Send Message</button></div>
               </form>
             </div>
-          </div>
+          </v-col>
+          <v-col offset-md="2" class="d-sm-none"/>
 
-        </div>
+        </v-row>
 
       </div>
     </section><!-- #contact -->
@@ -606,7 +337,7 @@
         <div class="row">
 
           <div class="col-lg-4 col-md-6 footer-info">
-            <h3>NewBiz</h3>
+            <h3>DS SUITE</h3>
             <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
           </div>
 
@@ -655,7 +386,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong>NewBiz</strong>. All Rights Reserved
+        &copy; Copyright <strong>DS SUITE</strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!--
@@ -664,14 +395,15 @@
           Licensing information: https://bootstrapmade.com/license/
           Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=NewBiz
         -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Designed by <a href="https://bootstrapmade.com/">Semicolon DevOp Team</a>
       </div>
     </div>
   </footer><!-- #footer -->
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-
-</div>
+  <!-- Uncomment below i you want to use a preloader -->
+  <div id="preloader"></div>
+  </div>
 </template>
 
 <script>
@@ -679,29 +411,29 @@ export default {
   name: "MarketingPage",
 
   mounted() {
-
-  const pathToScript = ["lib/jquery/jquery.min.js","lib/jquery/jquery-migrate.min.js",
-  "lib/bootstrap/js/bootstrap.bundle.min.js", "lib/easing/easing.min.js",
-  "lib/mobile-nav/mobile-nav.js","lib/wow/wow.min.js","lib/waypoints/waypoints.min.js",
-  "lib/counterup/counterup.min.js","lib/owlcarousel/owl.carousel.min.js",
-  "lib/isotope/isotope.pkgd.min.js","lib/lightbox/js/lightbox.min.js",
-  "contactform/contactform.js","js/main.js"]
-
-    const scripts = [];
-
-    pathToScript.forEach(url=>{
-      scripts.push(url);
-  });
-
-    console.log(scripts)
-
-    scripts.forEach(script => {
-      let tag = document.createElement("script");
-      tag.setAttribute("src", script);
-      tag.async = false;
-      document.head.appendChild(tag);
-
-    });
+  //
+  // const pathToScript = ["lib/jquery/jquery.min.js","lib/jquery/jquery-migrate.min.js",
+  // "lib/bootstrap/js/bootstrap.bundle.min.js", "lib/easing/easing.min.js",
+  // "lib/mobile-nav/mobile-nav.js","lib/wow/wow.min.js","lib/waypoints/waypoints.min.js",
+  // "lib/counterup/counterup.min.js","lib/owlcarousel/owl.carousel.min.js",
+  // "lib/isotope/isotope.pkgd.min.js","lib/lightbox/js/lightbox.min.js",
+  // "contactform/contactform.js","js/main.js"]
+  //
+  //   const scripts = [];
+  //
+  //   pathToScript.forEach(url=>{
+  //     scripts.push(url);
+  // });
+  //
+  //   console.log(scripts)
+  //
+  //   scripts.forEach(script => {
+  //     let tag = document.createElement("script");
+  //     tag.setAttribute("src", script);
+  //     tag.async = false;
+  //     document.head.appendChild(tag);
+  //
+  //   });
   }
 }
 </script>
