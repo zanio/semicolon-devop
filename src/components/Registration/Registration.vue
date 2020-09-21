@@ -1,7 +1,7 @@
 <template>
   <v-form ref="form" lazy-validation v-model="isValid">
     <h2 class="heading nuetral--text pt-5 pb-5">
-      Become an Innovator
+      Sign Up
     </h2>
     <div class="d-flex justify-space-between">
       <v-text-field
@@ -113,7 +113,7 @@
       color="primary"
       :disabled="!isValid || isLoading"
     >
-      Apply
+      Register
     </v-btn>
   </v-form>
 </template>

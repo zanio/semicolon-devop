@@ -2,7 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import programmaticScrolling from "vuetify/es5/services/goto";
 import ResponseLayout from "../components/Layout/ResponseLayout";
-import ApplicantLayout from "../components/Layout/ApplicantLayout";
+import MarketingPage from "@/markettingPage/MarketingPage";
 
 Vue.use(Router);
 
@@ -27,16 +27,16 @@ export default new Router({
       meta: { title: "DevSuite - Register" }
     },
     {
+      name: "Semicolon Dev Suite",
+      path: "/marketing-page",
+      component: MarketingPage,
+      meta: { title: "DevSuite Automate Your Deployment Process" }
+    },
+    {
       name: "response",
       path: "/response",
       component: ResponseLayout,
       meta: { title: "DevSuite - Response" }
-    },
-    {
-      name: "dashboard",
-      path: "/dashboard",
-      component: ApplicantLayout,
-      meta: { title: "DevSuite - dashboard" }
     },
     {
       name: "Create Password",
