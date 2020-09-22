@@ -412,8 +412,8 @@
   </footer><!-- #footer -->
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-  <!-- Uncomment below i you want to use a preloader -->
-  <div id="preloader"></div>
+  <!-- Uncomment below if you want to use a preloader -->
+  <div v-if="navigationType===1" id="preloader"></div>
     <div v-show="showOverlay" ref="overlay" :class="['mobile-nav-overly',`${displayNature}`]"></div>
   </div>
 </template>
@@ -426,7 +426,8 @@ export default {
       showNavigationButton: false,
       showOverlay:false,
       mobileIconMenu:"fa-bars",
-      displayNature:"none"
+      displayNature:"none",
+      navigationTypeBool:false
     };
   },
 
@@ -445,6 +446,22 @@ export default {
       clonedElement.setAttribute("ref","mobileVersion");
       root.append(clonedElement);
     }
+  },
+  computed:{
+    navigationType(){
+      let result;
+      let p;
+      if (window.performance.getEntriesByType("navigation")){
+        p=window.performance.getEntriesByType("navigation")[0].type;
+
+        if (p==='navigate'){result=0}
+        if (p==='reload'){result=1}
+        if (p==='back_forward'){result=2}
+        if (p==='prerender'){result=3} //3 is my invention!
+      }
+      return result;
+    }
+
   },
   methods:{
     toggle(){
@@ -471,7 +488,6 @@ export default {
         this.showOverlay = false;
         this.displayNature = "none";
       }
-      // this.$refs.overlay.toggle();
 
     }
   }
