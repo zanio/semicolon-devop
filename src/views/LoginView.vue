@@ -9,7 +9,7 @@
     </template>
 
     <template v-slot:button>
-      <layout-button btn-link="/apply">Become a Native</layout-button>
+      <layout-button btn-link="/register">Sign Up</layout-button>
     </template>
   </layout>
 </template>

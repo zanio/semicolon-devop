@@ -448,7 +448,13 @@ export default {
     }
   },
   computed:{
+
+    /**
+     *
+     * @returns {number}
+     */
     navigationType(){
+
       let result;
       let p;
       if (window.performance.getEntriesByType("navigation")){
@@ -464,6 +470,7 @@ export default {
 
   },
   methods:{
+
     toggle(){
       Element.prototype.toggle = function() {
         if ( this.style.display === '' || this.style.display === 'block' ) {
@@ -473,6 +480,10 @@ export default {
         }
       }
     },
+    /**
+     *
+     * @param event
+     */
     menuIcon(event){
       const root = this.$el;
       console.log(event);

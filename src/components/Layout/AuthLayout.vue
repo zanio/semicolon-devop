@@ -38,8 +38,8 @@
         <v-col cols="12" lg="1" class="hidden-md-and-down" />
         <v-col cols="12" lg="7" class="hidden-md-and-down pt-4 pb-4 secondary">
           <v-row>
-            <v-col offset-lg="4" />
-            <v-col lg="3">
+            <v-col offset-lg="3" />
+            <v-col lg="4  ">
               <slot name="button"></slot>
             </v-col>
           </v-row>

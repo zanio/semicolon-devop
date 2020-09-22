@@ -13,6 +13,7 @@ export default {
     btnLink: {
       type: String
     }
+
   }
 };
 </script>
