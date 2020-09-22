@@ -360,7 +360,7 @@ h6 {
   left: -260px;
   width: 260px;
   padding-top: 18px;
-  background: rgba(19, 39, 57, 0.8);
+  background: #f7e0b4;
   transition: 0.4s;
 }
 
@@ -439,7 +439,6 @@ h6 {
   position: fixed;
   background: rgba(19, 39, 57, 0.8);
   overflow: hidden;
-  display: none;
 }
 
 .mobile-nav-active {
@@ -451,7 +450,14 @@ h6 {
 }
 
 .mobile-nav-active .mobile-nav-toggle i {
-  color: #fff;
+  color: red;
+  font-size: 30px;
+  background: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  line-height: 40px;
+  text-align: center;
 }
 
 /*--------------------------------------------------------------

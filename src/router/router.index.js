@@ -28,7 +28,7 @@ export default new Router({
     },
     {
       name: "Semicolon Dev Suite",
-      path: "/marketing-page",
+      path: "/",
       component: MarketingPage,
       meta: { title: "DevSuite Automate Your Deployment Process" }
     },
@@ -58,7 +58,7 @@ export default new Router({
       meta: { title: "DevSuite - Reset Password" }
     },
     {
-      path: '/',
+      path: '/dashboard',
       component: () => import('@/views/dashboard/Index'),
       meta: { title: "DevSuite - dashboard" },
       children: [

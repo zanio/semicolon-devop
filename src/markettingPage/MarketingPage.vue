@@ -3,6 +3,9 @@
   Header
   ============================-->
   <div>
+    <button v-if="showNavigationButton" @click="menuIcon"
+      type="button" ref="mobileToggle" class="mobile-nav-toggle d-lg-none"><i ref="iElement"
+                                        :class="['fa',` ${mobileIconMenu}`]"></i></button>
   <header id="header" class="fixed-top">
     <div class="container">
 
@@ -12,12 +15,14 @@
         <a href="#intro" class="scrollto"><img :src="require('@/assets/ds-suite-logo.svg')" alt="" class="img-fluid"></a>
       </div>
 
-      <nav class="main-nav float-right d-none d-lg-block">
+      <nav ref="mobileNav"  class="main-nav float-right d-none d-lg-block">
         <ul>
-          <li class="active"><a href="#intro">Home</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#contact">Contact Us</a></li>
+          <li class="active"><router-link to="#intro">Home</router-link></li>
+          <li><router-link to="#about">About Us</router-link></li>
+          <li><router-link to="#services">Services</router-link></li>
+          <li><router-link to="#contact">Contact Us</router-link></li>
+          <li><router-link to="/register"><v-btn elevation="0" shaped color="primary" ripple=false >Register</v-btn></router-link></li>
+          <li><router-link to="/login"><v-btn elevation="0" shaped color="primary" outlined link ripple=false >Login</v-btn></router-link></li>
         </ul>
       </nav><!-- .main-nav -->
 
@@ -35,10 +40,11 @@
       </div>
 
       <div class="intro-info">
-        <h2>We provide CI/CD<br><span>solutions</span><br>for your business!</h2>
+<!--        we’re automating the entire DevOps processes into one suite.-->
+        <h2>We’re Automating the entire <br><span>DevOps processes</span><br> into one suite</h2>
         <div>
-          <a href="#about" class="btn-get-started scrollto">Get Started</a>
-          <a href="#services" class="btn-services scrollto">Our Services</a>
+          <router-link to="/register" href="" class="btn-get-started scrollto">Get Started</router-link>
+          <router-link to="/#services" href="" class="btn-services scrollto">Our Services</router-link>
         </div>
       </div>
 
@@ -55,32 +61,33 @@
 
         <header class="section-header">
           <h3>About Us</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p>Introducing the Semicolon DS SUITE</p>
         </header>
 
         <div class="row about-container">
 
           <div class="col-lg-6 content order-lg-1 order-2">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              Ds suite simply means DevOps Service Suite. This platform offers a unique DevOps-as-a-service approach to project delivery.
             </p>
 
             <div class="icon-box wow fadeInUp">
               <div class="icon"><i class="fa fa-shopping-bag"></i></div>
-              <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-              <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+              <h4 class="title"><a href="">Offerings</a></h4>
+              <p class="description">DS Suite is shipped with integration of custom pipelines </p>
             </div>
 
             <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
               <div class="icon"><i class="fa fa-photo"></i></div>
-              <h4 class="title"><a href="">Magni Dolores</a></h4>
-              <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+              <h4 class="title"><a href="">SeamLess Experience</a></h4>
+              <p class="description">The aim is to provide seamless experiences for Semicolon teams</p>
             </div>
 
             <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
               <div class="icon"><i class="fa fa-bar-chart"></i></div>
-              <h4 class="title"><a href="">Dolor Sitema</a></h4>
-              <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+              <h4 class="title"><a href="">CI / CD</a></h4>
+              <p class="description">We set up the test environment for your code,
+                build your project artifacts and deploy the application to the cloud</p>
             </div>
 
           </div>
@@ -95,12 +102,13 @@
             <img :src="require('@/assets/img/undraw_interaction_design_odgc.svg')" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
-            <h4>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h4>
+            <h4>Objective.</h4>
             <p>
-              Ipsum in aspernatur ut possimus sint. Quia omnis est occaecati possimus ea. Quas molestiae perspiciatis occaecati qui rerum. Deleniti quod porro sed quisquam saepe. Numquam mollitia recusandae non ad at et a.
+              We want to programmatically design a system that automatically does all the DevOps processes
+              that we would ordinarily have needed to do manually for each team as a service.
             </p>
             <p>
-              Ad vitae recusandae odit possimus. Quaerat cum ipsum corrupti. Odit qui asperiores ea corporis deserunt veritatis quidem expedita perferendis. Qui rerum eligendi ex doloribus quia sit. Porro rerum eum eum.
+              Thus, we’re automating the entire DevOps processes into one suite.
             </p>
           </div>
         </div>
@@ -111,15 +119,18 @@
           </div>
 
           <div class="col-lg-6 wow fadeInUp pt-4 pt-lg-0 order-2 order-lg-1">
-            <h4>Neque saepe temporibus repellat ea ipsum et. Id vel et quia tempora facere reprehenderit.</h4>
+            <h4>What we do</h4>
             <p>
-              Delectus alias ut incidunt delectus nam placeat in consequatur. Sed cupiditate quia ea quis. Voluptas nemo qui aut distinctio. Cumque fugit earum est quam officiis numquam. Ducimus corporis autem at blanditiis beatae incidunt sunt.
+              We are a team of DevOps engineers that are concerned with creating low cost CI/CD DevOps solutions
+              to serve as an affordable run-to alternative for developers who cannot afford the high costs of deployment offered by the Big-Dogs in the industry.
             </p>
             <p>
-              Voluptas saepe natus quidem blanditiis. Non sunt impedit voluptas mollitia beatae. Qui esse molestias. Laudantium libero nisi vitae debitis. Dolorem cupiditate est perferendis iusto.
+              We thus have created various solutions to meet the various deployment needs of your chosen development stack and have packaged
+              it in a very user-friendly form that has simplified the entire process of deployment for you to just few clicks and filling a simple form.
             </p>
             <p>
-              Eum quia in. Magni quas ipsum a. Quis ex voluptatem inventore sint quia modi. Numquam est aut fuga mollitia exercitationem nam accusantium provident quia.
+              The process begins at the point where the developer comes on-board to the platform by
+              registering via the register handle, and then the process develops until the final stage when their apps are deployed into production.
             </p>
           </div>
 
@@ -338,7 +349,7 @@
 
           <div class="col-lg-4 col-md-6 footer-info">
             <h3>DS SUITE</h3>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
+            <p>Feel free to contact the DevOps team with any issues you may encounter with your projects.</p>
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
@@ -403,37 +414,66 @@
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
   <!-- Uncomment below i you want to use a preloader -->
   <div id="preloader"></div>
+    <div v-show="showOverlay" ref="overlay" :class="['mobile-nav-overly',`${displayNature}`]"></div>
   </div>
 </template>
 
 <script>
 export default {
   name: "MarketingPage",
+  data() {
+    return {
+      showNavigationButton: false,
+      showOverlay:false,
+      mobileIconMenu:"fa-bars",
+      displayNature:"none"
+    };
+  },
+
+  created() {
+    this.showNavigationButton = !this.showNavigationButton;
+  },
 
   mounted() {
-  //
-  // const pathToScript = ["lib/jquery/jquery.min.js","lib/jquery/jquery-migrate.min.js",
-  // "lib/bootstrap/js/bootstrap.bundle.min.js", "lib/easing/easing.min.js",
-  // "lib/mobile-nav/mobile-nav.js","lib/wow/wow.min.js","lib/waypoints/waypoints.min.js",
-  // "lib/counterup/counterup.min.js","lib/owlcarousel/owl.carousel.min.js",
-  // "lib/isotope/isotope.pkgd.min.js","lib/lightbox/js/lightbox.min.js",
-  // "contactform/contactform.js","js/main.js"]
-  //
-  //   const scripts = [];
-  //
-  //   pathToScript.forEach(url=>{
-  //     scripts.push(url);
-  // });
-  //
-  //   console.log(scripts)
-  //
-  //   scripts.forEach(script => {
-  //     let tag = document.createElement("script");
-  //     tag.setAttribute("src", script);
-  //     tag.async = false;
-  //     document.head.appendChild(tag);
-  //
-  //   });
+    const __mobileNav = this.$refs.mobileNav;
+    const root = this.$el;
+    if(__mobileNav){
+      const clonedElement = __mobileNav.cloneNode(true);
+      clonedElement.classList.add("mobile-nav","d-lg-none");
+      clonedElement.classList.contains("d-lg-block") ? clonedElement.classList.remove("d-lg-block"):null;
+      clonedElement.classList.contains("d-none") ? clonedElement.classList.remove("d-none"):null;
+      clonedElement.setAttribute("ref","mobileVersion");
+      root.append(clonedElement);
+    }
+  },
+  methods:{
+    toggle(){
+      Element.prototype.toggle = function() {
+        if ( this.style.display === '' || this.style.display === 'block' ) {
+          this.style.display = 'none';
+        }else{
+          this.style.display = 'block';
+        }
+      }
+    },
+    menuIcon(event){
+      const root = this.$el;
+      console.log(event);
+      // this.toggle();
+      root.classList.toggle('mobile-nav-active');
+      if(this.mobileIconMenu === "fa-bars"){
+        this.mobileIconMenu = "fa-times";
+        this.showOverlay = true;
+        this.displayNature = "block";
+        // this.$refs.mobileVersion.classList.
+      } else{
+        this.mobileIconMenu= "fa-bars";
+        this.showOverlay = false;
+        this.displayNature = "none";
+      }
+      // this.$refs.overlay.toggle();
+
+    }
   }
 }
 </script>
