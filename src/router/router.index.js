@@ -23,7 +23,7 @@ export default new Router({
     {
       name: "Register",
       path: "/register",
-      component: () => import("@/views/RegisterationView"),
+      component: () => import("@/views/GithubView"),
       meta: { title: "DevSuite - Register" }
     },
     {
