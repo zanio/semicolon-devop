@@ -3,7 +3,6 @@ import './plugins/base'
 import './plugins/chartist'
 import i18n from './i18n'
 import App from "./App.vue";
-
 import router from "./router/router.index";
 import store from "./store";
 import VueTelInputVuetify from "vue-tel-input-vuetify/lib";
@@ -24,6 +23,7 @@ Vue.filter("error", ErrorFilter);
 Vue.use(VueTelInputVuetify, {
   vuetify,
 });
+
 
 Vue.component("app-alert", AlertComponent);
 

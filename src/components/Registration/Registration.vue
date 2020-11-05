@@ -3,51 +3,42 @@
     <h2 class="heading nuetral--text pt-5 pb-5">
       Sign Up
     </h2>
-    <div class="d-flex justify-space-between">
+    <div class="d-flex justify-space-between mb-3">
       <v-text-field
-        name="firstname"
-        label="First Name"
+        name="password"
+        label="Choose A password"
         id="firstname"
         v-model="firstname"
         outlined
         class="mr-2"
-        type="text"
+        type="password"
         required
         :rules="[(v) => !!v || 'first name is required']"
       ></v-text-field>
-
       <v-text-field
-        name="lastname"
-        outlined=""
-        label="Last Name"
-        id="lastname"
-        v-model="lastname"
-        type="text"
-        required
-        :rules="[(v) => !!v || 'Last name is required']"
+          name="confirmPassword"
+          label="Re-type Password"
+          id="firstname"
+          v-model="firstname"
+          outlined
+          class="mr-2"
+          type="password"
+          required
+          :rules="[(v) => !!v || 'first name is required']"
       ></v-text-field>
+
     </div>
 
-    <v-text-field
-      outlined
-      name="email"
-      label="Email"
-      id="email"
-      v-model="email"
-      type="email"
-      required
-      :rules="emailRule"
-    ></v-text-field>
 
     <vue-tel-input-vuetify
       label="Phone Number"
       required
       name="phone_number"
       outlined
-      flat
       :rules="regexValidationForNumber"
       mode="international"
       full-width
+
       v-model="phone"
       @input="countrySelected"
       @country-changed="countrySelected"
@@ -57,53 +48,8 @@
       </span>
     </vue-tel-input-vuetify>
 
-    <v-autocomplete
-      v-model="select"
-      label="Age"
-      :items="dropdown"
-      outlined
-      dense
-      chips
-      :append-icon="mdiChevronDown"
-      small-chips
-      required
-      :rules="[(v) => !!v || 'Age range is required']"
-      menu-props="auto, overflowY"
-      :search-input.sync="search"
-      cache-items
-    >
-    </v-autocomplete>
 
-    <v-radio-group
-      :rules="[(v) => !!v || 'Gender is required']"
-      v-model="gender"
-      required
-      label="Gender"
-      row
-    >
-      <v-radio color="primary" label="Male" value="male"> </v-radio>
-      <v-radio color="primary" label="Female" value="female"> </v-radio>
-    </v-radio-group>
 
-    <v-checkbox
-      dense
-      :rules="[(v) => !!v || 'Please accept the terms and condition']"
-      required
-      v-model="checkbox"
-    >
-      <template v-slot:label>
-        <div>
-          I agree to the
-          <a
-            class="text-decoration-none font-weight-normal"
-            target="_blank"
-            href="http://vuetifyjs.com"
-          >
-            Terms and Conditions
-          </a>
-        </div>
-      </template>
-    </v-checkbox>
 
     <v-btn
       @click.prevent="onSignup"
@@ -113,7 +59,7 @@
       color="primary"
       :disabled="!isValid || isLoading"
     >
-      Register
+      Complete Registration
     </v-btn>
   </v-form>
 </template>

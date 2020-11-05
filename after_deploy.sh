@@ -1,6 +1,7 @@
 #!/bin/bash
-echo " After app is deployed"
-cd
+echo " Deployment task finished at heroku"
+
+cd || exit
  ls
  if [ -e dist ]
  then
@@ -11,5 +12,5 @@ cd
      rm -rf tests
      echo "All files deleted"
  else
-     echo "file does not exist"
+     echo "The folder with the name of dist cannot be found"
  fi
