@@ -20,7 +20,7 @@ before_deploy: "./before_deploy.sh"
 deploy:
   provider: heroku
   api_key:
-    secure: aKkyAyAvKkC84s9nd4NxSyZsSuaXnrAK97CY73Vt4UGEk6CMukS6EpLdFzpHtD3bSuDU6Lf3HbGzhyUUpjJsdAOCSlRqp1I/wCl0yXVVaVEbBRBJXOyd4Gk5s1DfcNDo4PLUEni9bsMnuhaDSMWAQBWujCDgCi6rpMyN1oLW+n70h/efo0gz4YY/Qe8RvxryiKqh39JV5hpOl/y55haG31JztwH6Qbw2jKOI6v0LHNHWEciurGSLsbpB/ybuAsBB4zb0pBb7OCJuw9vNaOGRmEs4kvUNm98a3FytA4dh7+bWybvP8i+5QVYcTHWYkBnReA/PVnuqPPl6C9RZU6HKkziAP2aph9LDWw50hjp5bDAU5ugpn12A9KE7mocJXz+m7QpHIcbWSsUWZ9Auv4SfLmN+Gs1zoOiwH44nMp+fyjQXQGPR0sw8Ep86vja0SvT9MU8Cqxr3ETpczQBnt3OdrAqWcG+lWYX7x0zoqGitLmDQiPnJ9ABr2x2VVdBagcSu0t6Bh1WqS6cvU5MeAq9PmxlWk+y7/3j8NjB/4erWLIEOTCt0V+x9D6srWaxu5e5mm5mefMSMcv2hol+uI0UeYE9x21IzgqXctgJtHFXU8yCJIHNFR/pfF7kRxBk4O9EEWE6aNdho5s1FmkXZxq1DQ3+Q/kg5uVr7iY/Mb9faBhI=
+    secure: $HEROKU_KEY
   app:
     dev: semicolon-ds-staging
   skip_cleanup: true
