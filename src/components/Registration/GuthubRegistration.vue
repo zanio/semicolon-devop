@@ -20,6 +20,7 @@ import { mdiChevronDown } from "@mdi/js";
 import Github from "@/components/github_signup/Github";
 import Pizzly from "pizzly-js";
 
+
 export default {
   name: "registration",
   components: {Github},
@@ -56,8 +57,8 @@ export default {
       this.fetchStarringRepositories()
     },
     connectError: function (err) {
-      console.error(err)
-      alert("Something went wrong. Look at the logs.")
+      console.error(err.message)
+      // alert("Something went wrong. Look at the logs.")
     },
     fetchStarringRepositories: function() {
       this.$pizzly
