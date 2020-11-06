@@ -1,26 +1,26 @@
 language: node_js
 node_js:
-- 10
+  - 10
 addons:
   apt:
     packages:
-    - libgconf-2-4
+      - libgconf-2-4
 cache:
   npm: true
   directories:
-  - node_modules
+    - node_modules
 install:
-- npm ci
+  - npm ci
 script:
-- npm run test:unit
+  - npm run test:unit
 after_success:
-- cat ./coverage/lcov.info | coveralls
-- npm run build
+  - cat ./coverage/lcov.info | coveralls
+  - npm run build
 before_deploy: "./before_deploy.sh"
 deploy:
   provider: heroku
   api_key:
-    secure: X/tqosUlntnoNof2Hb5wmSXKSF6Pg3E6zoeFAkIC184zVtOv35VpLz1HlUMyk4DxzkSj0W0nwx1IJZ8jjbktGcr0fiDP8QMHDk46nNYmvQrogW/CB5hoY8stColJZGzDoe7YYjM2h3ZgJ9jtHStbe6Clg83KFXaj5CxIFbTxwnXrv7HQBFABTUBbYiqDIXzbZ73qgTEDp2uQYyyLOp8LPW1E4r0JAwsQSaP00PizjmIN/iLuHV96pgeusKYM0vpYA1E7173XSkzrGllsluymkQ7oa67FANhmhQusKR1HCStdy4s1pSxTJrs/97SpjEM5eqaJeMw17iYiS9dlmd/V0txruoOw3ZD5LjHDjk564JEs4cWJFzhfKCDXV5NHv1c442KipDP7IfIXsUvmoX+QSL7EQ+BpmYlkNxG7QLmZVuGcz2xDn6s4JBYNzGM5OdEkkZiCgnPjI1JObnfhekd9V9q9bhxdQmi4tpb3v3d8z4SFxLrcewoDZ/vdm8Yb9uMSqEfI4/ZM0iITbWBMKu7F1TkkkP05MlCrkL71UWtkJzs85zSQZAQiJkMaCloIIbn1vXqP0QQbJQh+vao9BWH7r4veIOJZsS3Bi/4GFzLYh/5DPW8BEHFSho8pSgTD/wuArujtxkROIxJirHTp2SwoMWHJtZZOIp81svzSucZ2BJ0=
+    secure: aKkyAyAvKkC84s9nd4NxSyZsSuaXnrAK97CY73Vt4UGEk6CMukS6EpLdFzpHtD3bSuDU6Lf3HbGzhyUUpjJsdAOCSlRqp1I/wCl0yXVVaVEbBRBJXOyd4Gk5s1DfcNDo4PLUEni9bsMnuhaDSMWAQBWujCDgCi6rpMyN1oLW+n70h/efo0gz4YY/Qe8RvxryiKqh39JV5hpOl/y55haG31JztwH6Qbw2jKOI6v0LHNHWEciurGSLsbpB/ybuAsBB4zb0pBb7OCJuw9vNaOGRmEs4kvUNm98a3FytA4dh7+bWybvP8i+5QVYcTHWYkBnReA/PVnuqPPl6C9RZU6HKkziAP2aph9LDWw50hjp5bDAU5ugpn12A9KE7mocJXz+m7QpHIcbWSsUWZ9Auv4SfLmN+Gs1zoOiwH44nMp+fyjQXQGPR0sw8Ep86vja0SvT9MU8Cqxr3ETpczQBnt3OdrAqWcG+lWYX7x0zoqGitLmDQiPnJ9ABr2x2VVdBagcSu0t6Bh1WqS6cvU5MeAq9PmxlWk+y7/3j8NjB/4erWLIEOTCt0V+x9D6srWaxu5e5mm5mefMSMcv2hol+uI0UeYE9x21IzgqXctgJtHFXU8yCJIHNFR/pfF7kRxBk4O9EEWE6aNdho5s1FmkXZxq1DQ3+Q/kg5uVr7iY/Mb9faBhI=
   app:
     dev: semicolon-ds-staging
   skip_cleanup: true
