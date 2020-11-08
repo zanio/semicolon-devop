@@ -32,6 +32,6 @@ module.exports = {
   },
   collectCoverageFrom: ['src/**/*.{js,vue}', '!src/main.js'],
 
-  setupFiles: ["jest-date-mock","<rootDir>/tests/unit/index.js"],
+  setupFiles: ["jest-date-mock","<rootDir>/tests/unit/github.module.js"],
   preset: "@vue/cli-plugin-unit-jest"
 };

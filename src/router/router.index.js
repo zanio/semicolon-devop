@@ -3,6 +3,9 @@ import Router from "vue-router";
 import programmaticScrolling from "vuetify/es5/services/goto";
 import ResponseLayout from "../components/Layout/ResponseLayout";
 import MarketingPage from "@/markettingPage/MarketingPage";
+import GithubView from "@/views/GithubView";
+import RegistrationView from "@/views/RegisterationView";
+import {isAuthIdPresent, isUserTokenPresent} from "@/common/helper";
 
 Vue.use(Router);
 
@@ -23,8 +26,41 @@ export default new Router({
     {
       name: "Register",
       path: "/register",
-      component: () => import("@/views/GithubView"),
-      meta: { title: "DevSuite - Register" }
+      component: GithubView,
+      meta: { title: "DevSuite - Register With Github",allowAnonymous:true },
+      beforeEnter:(to,from,next)=>{
+        if (to.name === 'register' && isUserTokenPresent()) {
+          next({path: '/'})
+        }
+        else if (to.meta.allowAnonymous && isAuthIdPresent() && !isUserTokenPresent()) {
+          next({
+            path: '/complete-registration',
+            query: {redirect: to.fullPath}
+          })
+        } else {
+          next();
+        }
+      }
+
+    },
+    {
+      name: "Register",
+      path: "/complete-registration",
+      component: RegistrationView,
+      meta: { title: "DevSuite - Complete Your Registration With Github",allowAnonymous:false },
+      beforeEnter:(to,from,next)=>{
+        if (to.name === 'login' && isAuthIdPresent()) {
+            next({path: '/'})
+        } else if (!to.meta.allowAnonymous && !isAuthIdPresent()) {
+            next({
+                path: '/register',
+                query: {redirect: to.fullPath}
+            })
+        } else {
+          next();
+        }
+      }
+
     },
     {
       name: "Semicolon Dev Suite",
@@ -58,6 +94,7 @@ export default new Router({
       meta: { title: "DevSuite - Reset Password" }
     },
     {
+      name:"dashboard",
       path: '/dashboard',
       component: () => import('@/views/dashboard/Index'),
       meta: { title: "DevSuite - dashboard" },

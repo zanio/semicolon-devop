@@ -1,30 +1,30 @@
 <template>
   <v-form ref="form" lazy-validation v-model="isValid">
-    <h2 class="heading nuetral--text pt-5 pb-5">
-      Sign Up
+    <h2 class="subtitle-1 accent--text pt-5 pb-5">
+      Complete your Registration
     </h2>
     <div class="d-flex justify-space-between mb-3">
       <v-text-field
         name="password"
         label="Choose A password"
         id="firstname"
-        v-model="firstname"
+        v-model="password"
         outlined
         class="mr-2"
         type="password"
         required
-        :rules="[(v) => !!v || 'first name is required']"
+        :rules="passwordRules"
       ></v-text-field>
       <v-text-field
           name="confirmPassword"
           label="Re-type Password"
           id="firstname"
-          v-model="firstname"
+          v-model="confirmPassword"
           outlined
           class="mr-2"
           type="password"
           required
-          :rules="[(v) => !!v || 'first name is required']"
+          :rules="confirmPasswordRules"
       ></v-text-field>
 
     </div>
@@ -38,6 +38,7 @@
       :rules="regexValidationForNumber"
       mode="international"
       full-width
+      class="custom-input-style"
 
       v-model="phone"
       @input="countrySelected"
@@ -73,41 +74,43 @@ export default {
   props: {},
   data() {
     return {
-      dropdown: ["10-15", "16-20", "20-30", "30-40", "40-above"],
-      gender: null,
-      checkbox: false,
+
       phone: null,
       countryCode: null,
       errorPhoneNumber: "",
       isValid: true,
-      email: null,
-      firstname: null,
-      lastname: null,
-      ageRange: null,
-      search: null,
-      select: null,
+      password: null,
+      confirmPassword: null,
+      passwordRules: [
+        (value) => !!value || 'Please type password.',
+        (value) => (value && value.length >= 6) || 'minimum 6 characters',
+      ],
+      regexValidationForNumber: [
+        (value) => !!value || 'Please type Phone Number.',
+        (value) => (value && value.length >= 11) || 'minimum 11 characters',
+      ],
+      confirmPasswordRules: [
+        (value) => !!value || 'type confirm password',
+        (value) =>
+            value === this.password || 'The password confirmation does not match.',
+      ],
       mdiChevronDown
     };
   },
 
   mounted() {
-    console.log(this);
+    console.log(this.user, "From the registration section");
   },
   computed: {
-    regexValidationForNumber() {
-      return [(v) => !!v || "phone number is required"];
-    },
 
-    emailRule() {
-      return [
-        (v) => !!v,
-        (v) => /.+@.+/.test(v) || "Email is required and Email must be valid"
-      ];
-    },
     ...mapState({
       errors: (state) => state.auth.errors,
-      isLoading: (state) => state.auth.isLoading
-    })
+      isLoading: (state) => state.auth.isLoading,
+      user:(state) => state.github.user
+    }),
+    getUser(){
+      return JSON.parse(localStorage.getItem("user"));
+    }
   },
   watch: {
     search(val) {
@@ -116,30 +119,23 @@ export default {
     }
   },
   methods: {
-    setAgeRange() {
-      this.ageRange = this.$refs.autocomplete.selectedItem;
-    },
-    isPhoneNumberValid(value) {
-      return value >= 21 || value != "" || value != "undefined";
-    },
-    onFocus(e) {
-      this.$refs.autocomplete.isMenuActive = true; // open item list
-    },
     countrySelected(val) {
       this.countryCode = val.dialCode;
     },
     onSignup() {
       if (this.$refs.form.validate()) {
+        const authId = JSON.parse(localStorage.getItem("authId"));
+        const payload = {
+          authId: authId,
+          avatar_url: this.user.avatar_url || this.getUser().avatar_url,
+          phoneNumber: this.phone || this.getUser().avatar_url,
+          login: this.user.login || this.getUser().login,
+          name: this.user.name || this.getUser().name,
+        }
+        console.log(payload)
         this.$store
-          .dispatch("auth/setRegister", {
-            firstname: this.firstname,
-            lastname: this.lastname,
-            phoneNumber: this.phone,
-            email: this.email,
-            gender: this.gender,
-            select: this.select
-          })
-          .then(() => this.$router.push({ name: "welcome" }));
+          .dispatch("auth/setRegister", payload)
+          .then(() => this.$router.push({ name: "dashboard" }));
       }
     }
   }
@@ -148,13 +144,14 @@ export default {
 
 <style lang="scss" scoped>
 .v-form {
-  .country-code {
-    padding: 0;
-    margin: 0;
+
+  .custom-input-style.vue-tel-input-vuetify ::v-deep.country-code .v-input .v-input__control {
+    //background: green ;
+    //border: solid 1rem purple;
   }
-  .vue-tel-input-vuetify .country-code {
-    background: green;
-    border: solid 1rem purple;
+
+  .custom-input-style.vue-tel-input-vuetify ::v-deep>.v-input fieldset legend {
+    display: none    //border: solid 1rem purple;
   }
 }
 </style>

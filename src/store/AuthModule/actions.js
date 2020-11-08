@@ -11,6 +11,7 @@ export function SetLogin({ commit }, { payload }) {
     commit("FETCH_START");
     ApiService.post("auth/login", payload)
       .then(({ data }) => {
+        //WHEN YOU COMMIT A TRANSACTION YOU ARE BASICALLY CALLING THE FUNCTION CORRESPONDING TO THE FUNCTION...
         commit("SET_AUTH", data);
         resolve(data);
       })
@@ -25,7 +26,7 @@ export function SetLogin({ commit }, { payload }) {
 export function setRegister({ commit }, { payload }) {
   return new Promise((resolve, reject) => {
     commit("FETCH_START");
-    ApiService.post("auth/register", payload)
+    ApiService.post("developers/new", payload)
       .then(({ data }) => {
         commit("SET_AUTH", data);
         resolve(data);
