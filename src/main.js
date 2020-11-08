@@ -14,8 +14,10 @@ import ApiService from "./common/api.service";
 import DateFilter from "./common/date.filter";
 import ErrorFilter from "./common/error.filter";
 import vuetify from "./plugins/vuetify";
+import JwtService from "@/common/jwt.service";
 
 import Vuelidate from "vuelidate";
+import {isAuthIdPresent} from "@/common/helper";
 // import {isAuthIdPresent} from "@/common/helper";
 
 Vue.config.productionTip = false;
@@ -34,30 +36,9 @@ Vue.use(Vuelidate);
 ApiService.init();
 
 
-// Ensure we checked auth before each page load.
-// router.beforeEach((to, from, next) =>{
-//     isAuthIdPresent()
-//     if (to.name === 'login' && isAuthIdPresent()) {
-//         next({ path: '/' })
-//     }
-//     else if (!to.meta.allowAnonymous || !isAuthIdPresent()) {
-//         next({
-//             path: '/login',
-//             query: { redirect: to.fullPath }
-//         })
-//     }
-//     else {
-//         next()
-//     }
-// }
-//   // Promise.all([store.dispatch(CHECK_AUTH)]).then(next)
-// );
-
-// This callback runs before every route change, including on page load.
-router.beforeEach((to, from, next) => {
+function routeMetaLogic(to, next) {
     // This goes through the matched routes from last to first, finding the closest route with a title.
     // eg. if we have /some/deep/nested/route and /some, /deep, and /nested have titles, nested's will be chosen.
-
     const nearestWithTitle = to.matched
         .slice()
         .reverse()
@@ -102,7 +83,23 @@ router.beforeEach((to, from, next) => {
         .forEach((tag) => document.head.appendChild(tag));
 
 
-    next();
+}
+
+// This callback runs before every route change, including on page load.
+router.beforeEach((to, from, next) => {
+
+    if (to.matched.some(record => !record.meta.allowAnonymous)){
+        routeMetaLogic(to, next);
+      if(JwtService.getToken()){
+          next();
+      } else {
+          next("/")
+      }
+    }else {
+        routeMetaLogic(to, next);
+        next();
+    }
+
 });
 
 

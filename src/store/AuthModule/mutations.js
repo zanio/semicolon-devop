@@ -18,7 +18,7 @@ export default {
     state.user = user;
     state.isLoading = false;
     state.errors = {};
-    JwtService.saveToken(state.user.token);
+    JwtService.saveToken(state.user.Authorization);
   },
   PURGE_AUTH: (state) => {
     state.isAuthenticated = false;

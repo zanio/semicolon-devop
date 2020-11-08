@@ -49,9 +49,6 @@
       </span>
     </vue-tel-input-vuetify>
 
-
-
-
     <v-btn
       @click.prevent="onSignup"
       elevation="0"
@@ -81,6 +78,7 @@ export default {
       isValid: true,
       password: null,
       confirmPassword: null,
+      localStorageUser:{},
       passwordRules: [
         (value) => !!value || 'Please type password.',
         (value) => (value && value.length >= 6) || 'minimum 6 characters',
@@ -107,10 +105,7 @@ export default {
       errors: (state) => state.auth.errors,
       isLoading: (state) => state.auth.isLoading,
       user:(state) => state.github.user
-    }),
-    getUser(){
-      return JSON.parse(localStorage.getItem("user"));
-    }
+    })
   },
   watch: {
     search(val) {
@@ -122,20 +117,24 @@ export default {
     countrySelected(val) {
       this.countryCode = val.dialCode;
     },
+    getUser(){
+      this.localStorageUser = JSON.parse(localStorage.getItem("user"));
+    },
     onSignup() {
       if (this.$refs.form.validate()) {
         const authId = JSON.parse(localStorage.getItem("authId"));
+        this.getUser();
         const payload = {
           authId: authId,
-          avatar_url: this.user.avatar_url || this.getUser().avatar_url,
-          phoneNumber: this.phone || this.getUser().avatar_url,
-          login: this.user.login || this.getUser().login,
-          name: this.user.name || this.getUser().name,
+          avatar_url: this.user.avatar_url || this.localStorageUser.avatar_url,
+          phoneNumber: this.phone,
+          password:this.password,
+          login: this.user.login || this.localStorageUser.login,
+          name: this.user.name || this.localStorageUser.name,
         }
-        console.log(payload)
         this.$store
           .dispatch("auth/setRegister", payload)
-          .then(() => this.$router.push({ name: "dashboard" }));
+          .then(() => this.$router.push({ name: "Login" }));
       }
     }
   }
