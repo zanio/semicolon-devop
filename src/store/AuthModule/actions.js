@@ -6,33 +6,51 @@ import { timeoutFunction } from "../utility";
  *  @param {Object} payload
  */
 
-export function SetLogin({ commit }, { payload }) {
+export function SetLogin({ commit }, payload ) {
   return new Promise((resolve, reject) => {
     commit("FETCH_START");
     ApiService.post("auth/login", payload)
       .then(({ data }) => {
+        //WHEN YOU COMMIT A TRANSACTION YOU ARE BASICALLY CALLING THE FUNCTION CORRESPONDING TO THE FUNCTION...
         commit("SET_AUTH", data);
         resolve(data);
       })
-      .catch(({ response }) => {
-        commit("SET_ERROR", response.data.errors);
+      .catch((error) => {
+        if (error.response) {
+          const errorJson = error.response.data;
+          commit("SET_ERROR", errorJson);
+        } else if (error.request) {
+          commit("SET_ERROR", error.request);
+        } else {
+          commit("SET_ERROR", error);
+        }
+        console.log(error);
+        reject(error);
         timeoutFunction(commit, "CLEAR_ERROR");
-        reject(response);
       });
   });
 }
 
-export function setRegister({ commit }, { payload }) {
+export function setRegister({ commit }, payload ) {
   return new Promise((resolve, reject) => {
     commit("FETCH_START");
-    ApiService.post("auth/register", payload)
+    console.log(payload)
+    ApiService.post("developers/new", payload)
       .then(({ data }) => {
         commit("SET_AUTH", data);
         resolve(data);
       })
       .catch((error) => {
-        commit("SET_ERROR", error);
-        console.log(error.request);
+
+        if (error.response) {
+          const errorJson = error.response.data;
+          commit("SET_ERROR", errorJson);
+        } else if (error.request) {
+          commit("SET_ERROR", error.request);
+        } else {
+          commit("SET_ERROR", error);
+        }
+        console.log(error);
         reject(error);
         timeoutFunction(commit, "CLEAR_ERROR");
       });

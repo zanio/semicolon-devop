@@ -1,10 +1,10 @@
 <template>
   <v-app>
-    <v-layout row v-if="errors">
-      <v-flex xs12>
-        <alert v-text="errorMessage" color="error"/>
-      </v-flex>
-    </v-layout>
+<!--    <v-layout row v-if="errors">-->
+<!--      <v-flex v-if="errors.message" xs12>-->
+        <alert btnClor="secondary" dismissible v-if="errors && errors.message" v-text="errors.message" color="error"/>
+<!--      </v-flex>-->
+<!--    </v-layout>-->
     <router-view />
   </v-app>
 </template>

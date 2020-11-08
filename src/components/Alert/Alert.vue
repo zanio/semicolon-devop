@@ -1,8 +1,10 @@
 <template>
   <v-alert
       v-bind="$attrs"
-      class="v-alert--material"
+      class="v-alert--material my-0"
       dark
+      shaped
+
       v-on="$listeners"
   >
     <template
@@ -26,7 +28,7 @@
     >
       <v-btn
           :aria-label="$vuetify.lang.t('$vuetify.close')"
-          color
+          :color="$attrs.btnClor"
           icon
           small
           @click="toggle"

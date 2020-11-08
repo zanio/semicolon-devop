@@ -5,13 +5,13 @@
     </h2>
 
     <v-text-field
-      name="email"
-      label="Email "
-      v-model="email"
+      name="username"
+      label="Username "
+      v-model="username"
       outlined
-      type="email"
+      type="text"
       required
-      :rules="[(v) => !!v || 'Please enter a valid email address']"
+      :rules="[(v) => !!v || 'Github Username']"
     ></v-text-field>
 
     <v-text-field
@@ -30,7 +30,7 @@
       width="100%"
       class="mt-3 mb-3"
       color="primary"
-      :disabled="!isValid"
+      :disabled="!isValid || isLoading"
     >
       Login
     </v-btn>
@@ -52,26 +52,36 @@
 </template>
 
 <script>
+import {mapState} from "vuex";
+
 export default {
   name: "login-form",
   props: {},
   data() {
     return {
       password: "",
-      email: "",
+      username: "",
       isValid: true
     };
   },
+  computed: {
 
+    ...mapState({
+      isLoading: (state) => state.auth.isLoading,
+    })
+  },
   methods: {
+    getUser(){
+      this.localStorageUser = JSON.parse(localStorage.getItem("user"));
+    },
     onLogin() {
       if (this.$refs["login"].validate()) {
         this.$store
           .dispatch("auth/SetLogin", {
-            email: this.email,
+            username: this.username,
             password: this.password
           })
-          .then(() => this.$router.push({ name: "welcome" }));
+          .then(() => this.$router.push({ name: "dashboard" }));
       }
     }
   }
