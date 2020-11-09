@@ -5,7 +5,7 @@ import ResponseLayout from "../components/Layout/ResponseLayout";
 import MarketingPage from "@/markettingPage/MarketingPage";
 import GithubView from "@/views/GithubView";
 import RegistrationView from "@/views/RegisterationView";
-import {isAuthIdPresent, isUserTokenPresent} from "@/common/helper";
+import {isAuthIdPresent} from "@/common/helper";
 import JwtService from "@/common/jwt.service";
 
 Vue.use(Router);
