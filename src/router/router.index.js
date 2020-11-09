@@ -30,7 +30,7 @@ export default new Router({
       component: GithubView,
       meta: { title: "DevSuite - Register With Github",allowAnonymous:true },
       beforeEnter:(to,from,next)=>{
-        if (to.name === 'register' && JwtService.getToken()) {
+        if (to.name === 'register' && isAuthIdPresent()) {
           next({path: '/'})
         }
         else if (to.meta.allowAnonymous && isAuthIdPresent() && !JwtService.getToken()) {
