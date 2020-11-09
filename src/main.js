@@ -88,17 +88,18 @@ function routeMetaLogic(to, next) {
 // This callback runs before every route change, including on page load.
 router.beforeEach((to, from, next) => {
 
-    if (to.matched.some(record => !record.meta.allowAnonymous)){
-        routeMetaLogic(to, next);
-      if(JwtService.getToken()){
-          next();
-      } else {
-          next("/")
-      }
-    }else {
-        routeMetaLogic(to, next);
-        next();
-    }
+    // if (to.matched.some(record => !record.meta.allowAnonymous)){
+    //     routeMetaLogic(to, next);
+    //   if(JwtService.getToken()){
+    //       next();
+    //   } else {
+    //       next("/")
+    //   }
+    // }else {
+    //     routeMetaLogic(to, next);
+    //     next();
+    // }
+    routeMetaLogic(to, next);
 
 });
 

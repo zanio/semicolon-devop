@@ -30,15 +30,16 @@ export default new Router({
       component: GithubView,
       meta: { title: "DevSuite - Register With Github",allowAnonymous:true },
       beforeEnter:(to,from,next)=>{
-        if (to.name === 'register' && isAuthIdPresent()) {
-          next({path: '/'})
-        }
-        else if (to.meta.allowAnonymous && isAuthIdPresent() && !JwtService.getToken()) {
+        if (to.meta.allowAnonymous && isAuthIdPresent() && !JwtService.getToken()) {
           next({
             path: '/complete-registration',
             query: {redirect: to.fullPath}
           })
-        } else {
+        }
+       else if (to.name === 'register' && isAuthIdPresent() && JwtService.getToken()) {
+          next({path: '/'})
+        }
+        else  {
           next();
         }
       }
