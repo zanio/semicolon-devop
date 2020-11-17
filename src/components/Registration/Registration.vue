@@ -9,7 +9,6 @@
         label="Choose A password"
         id="firstname"
         v-model="password"
-        outlined
         class="mr-2"
         type="password"
         required
@@ -20,7 +19,6 @@
           label="Re-type Password"
           id="firstname"
           v-model="confirmPassword"
-          outlined
           class="mr-2"
           type="password"
           required
@@ -34,7 +32,6 @@
       label="Phone Number"
       required
       name="phone_number"
-      outlined
       :rules="regexValidationForNumber"
       mode="international"
       full-width

@@ -6,26 +6,28 @@
 
     <v-text-field
       name="username"
-      label="Username "
+      label="Github Username "
       v-model="username"
-      outlined
+      class="mb-3"
       type="text"
       required
-      :rules="[(v) => !!v || 'Github Username']"
+      :rules="[(v) => !!v || 'Github Username is required']"
     ></v-text-field>
 
     <v-text-field
       name="password"
       label="password"
       v-model="password"
-      outlined
+      class="mb-3"
       type="password"
+      aria-autocomplete="both"
       required
       :rules="[(v) => !!v || 'Please type a valid password']"
     ></v-text-field>
 
     <v-btn
       @click.prevent="onLogin"
+      @keyup.prevent.enter="onLogin"
       elevation="0"
       width="100%"
       class="mt-3 mb-3"
@@ -81,7 +83,7 @@ export default {
             username: this.username,
             password: this.password
           })
-          .then(() => this.$router.push({ name: "dashboard" }));
+          .then(() => this.$router.push({ name: "Dashboard Home" }));
       }
     }
   }

@@ -11,14 +11,18 @@
 </template>
 
 <script>
+import AppBar from "@/views/dashboard/components/core/AppBar";
+import Drawer from "@/views/dashboard/components/core/Drawer";
+import View from "@/views/dashboard/components/core/View";
+import Settings from "@/views/dashboard/components/core/Settings";
   export default {
     name: 'DashboardIndex',
 
     components: {
-      DashboardCoreAppBar: () => import('./components/core/AppBar'),
-      DashboardCoreDrawer: () => import('./components/core/Drawer'),
-      DashboardCoreSettings: () => import('./components/core/Settings'),
-      DashboardCoreView: () => import('./components/core/View'),
+      DashboardCoreAppBar:AppBar,
+      DashboardCoreDrawer: Drawer,
+      DashboardCoreSettings: Settings,
+      DashboardCoreView: View
     },
 
     data: () => ({

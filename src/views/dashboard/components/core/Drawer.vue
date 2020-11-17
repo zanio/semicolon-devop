@@ -2,50 +2,49 @@
   <v-navigation-drawer
     id="core-navigation-drawer"
     v-model="drawer"
-    :dark="barColor !== 'rgba(228, 226, 226, 1), rgba(255, 255, 255, 0.7)'"
     :expand-on-hover="expandOnHover"
     :right="$vuetify.rtl"
-    :src="barImage"
     mobile-break-point="960"
+    color="secondary"
     app
-    width="260"
+    width="270"
     v-bind="$attrs"
   >
+
     <template v-slot:img="props">
       <v-img
-        :gradient="`to bottom, ${barColor}`"
         v-bind="props"
       />
     </template>
 
-    <v-divider class="mb-1" />
+    <v-divider class="mb-5" />
 
-    <v-list
+    <router-link :style="{cursor:'pointer'}" tag="div" to="/">  <v-list
       dense
       nav
     >
-      <v-list-item>
+     <v-list-item >
         <v-list-item-avatar
           class="align-self-center"
           color="white"
           contain
         >
           <v-img
-            src="https://demos.creative-tim.com/vuetify-material-dashboard/favicon.ico"
-            max-height="30"
+            :src="require('../../../../assets/logo.svg')"
+
           />
         </v-list-item-avatar>
 
         <v-list-item-content>
           <v-list-item-title
-            class="display-1"
-            v-text="profile.title"
+            class="display-2"
+            v-text="'DS SUITE'"
           />
         </v-list-item-content>
       </v-list-item>
-    </v-list>
+    </v-list></router-link>
 
-    <v-divider class="mb-2" />
+    <v-divider class="mb-5" />
 
     <v-list
       expand
@@ -79,9 +78,9 @@
     <template v-slot:append>
       <base-item
         :item="{
-          title: $t('upgrade'),
+          title: $t('Logout'),
           icon: 'mdi-package-up',
-          to: '/upgrade',
+          to: '/logout',
         }"
       />
     </template>
@@ -116,31 +115,22 @@
           title: 'user',
           to: '/pages/user',
         },
+
         {
-          title: 'rtables',
-          icon: 'mdi-clipboard-outline',
-          to: '/tables/regular-tables',
-        },
-        {
-          title: 'typography',
+          title: 'My Projects',
           icon: 'mdi-format-font',
           to: '/components/typography',
         },
         {
-          title: 'icons',
+          title: 'Create Project',
           icon: 'mdi-chart-bubble',
           to: '/components/icons',
         },
         {
-          title: 'google',
+          title: 'Configuration',
           icon: 'mdi-map-marker',
           to: '/maps/google-maps',
-        },
-        {
-          title: 'notifications',
-          icon: 'mdi-bell',
-          to: '/components/notifications',
-        },
+        }
       ],
     }),
 

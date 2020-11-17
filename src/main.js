@@ -17,8 +17,6 @@ import vuetify from "./plugins/vuetify";
 import JwtService from "@/common/jwt.service";
 
 import Vuelidate from "vuelidate";
-import {isAuthIdPresent} from "@/common/helper";
-// import {isAuthIdPresent} from "@/common/helper";
 
 Vue.config.productionTip = false;
 
@@ -87,22 +85,41 @@ function routeMetaLogic(to, next) {
 
 // This callback runs before every route change, including on page load.
 router.beforeEach((to, from, next) => {
+    if(to.matched.some(record => record.meta.requiresAuth)) {
+        // routeMetaLogic(to , next)
+        if (!JwtService.getToken()) {
+            next({
+                path: '/login',
+                params: { nextUrl: to.fullPath }
+            })
+        } else {
+            let user = JwtService.getToken();
+            if(to.matched.some(record => record.meta.is_admin)) {
+                if(user.is_admin == 1){
+                    next()
+                }
+                else{
+                    next({ name: 'Dashboard Home'})
+                }
+            }else {
+                next()
+            }
+        }
+    } else if(to.matched.some(record => record.meta.guest)) {
+        // routeMetaLogic(to,next)
+        if(!JwtService.getToken()){
+            next()
+        }
+        else{
+            next({ name: 'Dashboard Home'})
+        }
+    }else {
+        // routeMetaLogic(to, next)
+        next()
+    }
+})
 
-    // if (to.matched.some(record => !record.meta.allowAnonymous)){
-    //     routeMetaLogic(to, next);
-    //   if(JwtService.getToken()){
-    //       next();
-    //   } else {
-    //       next("/")
-    //   }
-    // }else {
-    //     routeMetaLogic(to, next);
-    //     next();
-    // }
-    routeMetaLogic(to, next);
-
-});
-
+export default router
 
 new Vue({
     router,
