@@ -8,6 +8,8 @@ import RegistrationView from "@/views/RegisterationView";
 import {isAuthIdPresent} from "@/common/helper";
 import JwtService from "@/common/jwt.service";
 import Dashboard from "@/views/dashboard/Dashboard";
+import Documentation from "@/views/dashboard/Documentation";
+import CreateProject from "@/views/dashboard/components/CreateProject";
 Vue.use(Router);
 
 export default new Router({
@@ -112,6 +114,30 @@ export default new Router({
         {
           name: 'Dashboard Home',
           path: '/',
+          component: Dashboard,
+
+        },
+        {
+          name: 'Documentation',
+          path: '/documentations',
+          component: Documentation,
+
+        },
+        {
+          name: 'Create New Project',
+          path: '/projects/create-project',
+          component: CreateProject,
+
+        },
+        {
+          name: 'Projects',
+          path: '/projects',
+          component: Dashboard,
+
+        },
+        {
+          name: 'Settings',
+          path: '/settings',
           component: Dashboard,
 
         },

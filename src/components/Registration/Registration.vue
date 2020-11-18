@@ -11,6 +11,7 @@
         v-model="password"
         class="mr-2"
         type="password"
+        outlined
         required
         :rules="passwordRules"
       ></v-text-field>
@@ -21,6 +22,7 @@
           v-model="confirmPassword"
           class="mr-2"
           type="password"
+          outlined
           required
           :rules="confirmPasswordRules"
       ></v-text-field>
