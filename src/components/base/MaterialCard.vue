@@ -3,6 +3,8 @@
     v-bind="$attrs"
     :class="classes"
     class="v-card--material pa-3"
+    tile
+    elevation="0"
   >
     <div class="d-flex grow flex-wrap">
       <v-avatar
@@ -22,7 +24,7 @@
         :color="color"
         :max-height="icon ? 90 : undefined"
         :width="icon ? 'auto' : '100%'"
-        elevation="6"
+        elevation="1"
         class="text-start v-card--material__heading mb-n6"
         dark
       >

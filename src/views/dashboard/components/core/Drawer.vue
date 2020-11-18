@@ -43,7 +43,6 @@
       </v-list-item>
     </v-list></router-link>
 
-    <v-divider class="mb-5" />
 
     <v-list
       expand
@@ -54,16 +53,9 @@
       <div />
 
       <template v-for="(item, i) in computedItems">
-        <base-item-group
-          v-if="item.children"
-          :key="`group-${i}`"
-          :item="item"
-        >
-          <!--  -->
-        </base-item-group>
 
         <base-item
-          v-else
+          v-if="!item.children"
           :key="`item-${i}`"
           :item="item"
         />
@@ -74,15 +66,6 @@
       <div />
     </v-list>
 
-    <template v-slot:append>
-      <base-item
-        :item="{
-          title: $t('Logout'),
-          icon: 'mdi-package-up',
-          to: '/logout',
-        }"
-      />
-    </template>
   </v-navigation-drawer>
 </template>
 
@@ -105,24 +88,29 @@
     data: () => ({
       items: [
         {
-          icon: 'mdi-view-dashboard',
+          icon: 'mdi-view-dashboard-outline',
           title: 'Dashboard',
           to: '/',
         },
         {
-          icon: 'mdi-account',
+          icon: 'mdi-application-cog',
           title: 'Projects',
-          to: '/pages/user',
+          to: '/projects',
         },
 
         {
           title: 'Documentation',
-          icon: 'mdi-format-font',
-          to: '/components/typography',
+          icon: 'mdi-text-box-multiple-outline',
+          to: '/documentations',
         },
         {
           title: 'Settings',
-          icon: 'mdi-chart-bubble',
+          icon: 'mdi-cog-outline',
+          to: '/settings',
+        },
+        {
+          title: 'Sign Out',
+          icon: 'mdi-logout-variant',
           to: '/components/icons',
         }
       ],
