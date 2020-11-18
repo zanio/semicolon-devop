@@ -17,7 +17,6 @@
       />
     </template>
 
-    <v-divider class="mb-5" />
 
     <router-link :style="{cursor:'pointer'}" tag="div" to="/">  <v-list
       dense
@@ -107,29 +106,24 @@
       items: [
         {
           icon: 'mdi-view-dashboard',
-          title: 'dashboard',
+          title: 'Dashboard',
           to: '/',
         },
         {
           icon: 'mdi-account',
-          title: 'user',
+          title: 'Projects',
           to: '/pages/user',
         },
 
         {
-          title: 'My Projects',
+          title: 'Documentation',
           icon: 'mdi-format-font',
           to: '/components/typography',
         },
         {
-          title: 'Create Project',
+          title: 'Settings',
           icon: 'mdi-chart-bubble',
           to: '/components/icons',
-        },
-        {
-          title: 'Configuration',
-          icon: 'mdi-map-marker',
-          to: '/maps/google-maps',
         }
       ],
     }),
